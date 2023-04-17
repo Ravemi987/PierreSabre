@@ -3,8 +3,8 @@ package histoire;
 public class Ronin extends Humain {
 	private int honneur = 1;
 
-	public Ronin(String nom, int argent) {
-		super(nom, "shochu", argent);
+	public Ronin(String nom, String boissonFavorite, int argent) {
+		super(nom, boissonFavorite, argent);
 	}
 
 	public void gagnerHonneur(int gain) {
@@ -20,7 +20,6 @@ public class Ronin extends Humain {
 	}
 	
 	public void donner(Commercant beneficiaire) {
-		int argent = getArgent();
 		double donation = 0.1 * getArgent();
 		parler("Marco prends ces " + donation + " sous.");
 		beneficiaire.recevoir((int)donation);
