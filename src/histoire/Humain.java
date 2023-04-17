@@ -9,7 +9,7 @@ public class Humain {
 	private static final int MAX_CONNAISSANCE = 30;
 	
 	public Humain(String nom, String boissonFavorite, int argent) {
-		this.memoire = new Humain[MAX_CONNAISSANCE];
+		memoire = new Humain[MAX_CONNAISSANCE];
 		this.nom = nom;
 		this.boissonFavorite = boissonFavorite;
 		this.argent = argent;
@@ -59,11 +59,11 @@ public class Humain {
 		}
 	}
 	
-	void repondre(Humain autreHumain) {
+	private void repondre(Humain autreHumain) {
 		autreHumain.direBonjour();
 	}
 	
-	void memoriser(Humain homme) {
+	protected void memoriser(Humain homme) {
 		if (nbConnaissance < MAX_CONNAISSANCE) {
 			memoire[nbConnaissance] = homme;
 			nbConnaissance++;
@@ -72,14 +72,14 @@ public class Humain {
 		}
 	}
 	
-	void faireConnaissanceAvec(Humain autreHumain) {
+	public void faireConnaissanceAvec(Humain autreHumain) {
 		direBonjour();
 		repondre(autreHumain);
 		autreHumain.memoriser(this);
 		memoriser(autreHumain);
 	}
 	
-	void listerConnaissance() {
+	public void listerConnaissance() {
 		String listeNoms = "";
 		for (int i = 0; i < nbConnaissance; i++) {
 			listeNoms += memoire[i].getNom();
